@@ -201,7 +201,7 @@ body {
   font-size: 0.95rem;
 }
 .content-text li + li { margin-top: 6px; }
-.content-text em { color: var(--primary); font-style: italic; }
+.content-text em { color: #e8f3ff; font-style: italic; }
 .content-text strong { font-weight: 700; }
 
 /* Nicer checkboxes */
@@ -210,6 +210,12 @@ body {
   height: 1rem;
   margin-right: 8px;
 }
+
+/* Accent utilities for inline emphasis */
+.accent-green { color: #46e38f; }
+.accent-orange { color: #ffb74d; }
+.accent-red { color: #ff6b6b; }
+.accent-blue { color: #46d1ff; }
 
 /* Generic helpers for cards */
 .expanded-body img {
