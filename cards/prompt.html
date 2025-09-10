@@ -5,10 +5,10 @@
       <div class="content-text flex-grow-1 no-close-zone">
         <h3 class="h5 mb-3"><strong>Prompt</strong></h3>
         <ul class="list-unstyled mb-0">
-          <li><label><input type="checkbox" /> The prompt <strong>does not mention tools</strong></label></li>
+          <li><label><input type="checkbox" /> If application use context is provided, the prompt <strong>follows</strong> such context</label></li>
           <li><label><input type="checkbox" /> The request feels <strong>natural</strong> and a <em>real-life scenario</em></label></li>
           <li><label><input type="checkbox" /> If not the first prompt, the request is a <strong>logical follow-up</strong></label></li>
-          <li><label><input type="checkbox" /> If application use context is provided, the prompt <strong>follows</strong> such context</label></li>
+          <li><label><input type="checkbox" /> The prompt <strong>does not mention tools</strong></label></li>
         </ul>
       </div>
     </div>
@@ -16,12 +16,23 @@
     <!-- Right: 2/3 on desktop (clickable to close) -->
     <div class="col-12 col-lg-8 d-flex close-on-click">
       <div class="flex-grow-1">
-        <!-- Replace with your real image -->
-        <img
-          src="..."
-          alt="Demo image for this card"
-          class="img-fluid rounded"
-        />
+        <div class="d-flex flex-column gap-3">
+          <img
+            src="images/prompt/prev_conv.png"
+            alt="Previous conversation reference"
+            class="img-fluid rounded"
+          />
+          <img
+            src="images/prompt/prompt1.png"
+            alt="Prompt reference 1"
+            class="img-fluid rounded"
+          />
+          <img
+            src="images/prompt/prompt.png"
+            alt="Prompt reference"
+            class="img-fluid rounded"
+          />
+        </div>
       </div>
     </div>
   </div>
