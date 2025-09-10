@@ -10,17 +10,17 @@
               <li><em>Possible error types</em>: <strong>no_tool_triggered</strong>, <strong>tool_over_triggered</strong></li>
             </ul>
           </li>
-          <li><label><input type="checkbox" /> <strong>Correct tool</strong> is chosen for the request</label>
+          <li><label><input type="checkbox" /> <strong class="accent-orange">Correct tool</strong> is chosen for the request</label>
             <ul>
               <li><em>Possible error type</em>: <strong>wrong_tool_selected</strong></li>
             </ul>
           </li>
-          <li><label><input type="checkbox" /> Tool is used correctly with the <strong>right parameters</strong></label>
+          <li><label><input type="checkbox" /> Tool is used correctly with the <strong class="accent-purple">right parameters</strong></label>
             <ul>
               <li><em>Possible error types</em>: wrong_param_value, required_param_missing, extra_param_predicted, param_not_defined, param_type_inconsistent, enum_not_respected, tool_call_not_parsable</li>
             </ul>
           </li>
-          <li><label><input type="checkbox" /> <strong>Check category flag</strong> correctly selected:</label>
+          <li><label><input type="checkbox" /> <strong class="accent-blue">Check category flag</strong> correctly selected:</label>
             <ul>
               <li>Should the model use an available tool? → <strong>Feasible tool</strong></li>
               <li>Should the model use a non-available tool? → <strong>Unfeasible tool</strong></li>
@@ -34,7 +34,7 @@
             </ul>
           </li>
           <li><label><input type="checkbox" /> If category flag is <strong>error recovery</strong> or <strong>state dependency</strong>, it is checked until resolved</label></li>
-          <li><label><input type="checkbox" /> Check <strong>Response type</strong> is <code>tool_call</code></label></li>
+          <li><label><input type="checkbox" /> Check <strong class="accent-red">Response type</strong> is <code>tool_call</code></label></li>
           <li><label><input type="checkbox" /> Check <strong>Verified steps</strong></label></li>
           <li><label><input type="checkbox" /> Check corrections in <strong>Refine</strong> response</label></li>
         </ul>
@@ -44,12 +44,43 @@
     <!-- Right: 2/3 on desktop (clickable to close) -->
     <div class="col-12 col-lg-8 d-flex close-on-click">
       <div class="flex-grow-1">
-        <!-- Replace with your real image -->
-        <img
-          src="..."
-          alt="Demo image for this card"
-          class="img-fluid rounded"
-        />
+        <div class="row g-3">
+          <div class="col-12 col-md-6">
+            <img
+              src="images/toolcalls/tool1.png"
+              alt="Tool calls reference 1"
+              class="img-fluid rounded"
+            />
+          </div>
+          <div class="col-12 col-md-6">
+            <img
+              src="images/toolcalls/tool2.png"
+              alt="Tool calls reference 2"
+              class="img-fluid rounded"
+            />
+          </div>
+          <div class="col-12 col-md-6">
+            <img
+              src="images/toolcalls/tool3.png"
+              alt="Tool calls reference 3"
+              class="img-fluid rounded"
+            />
+          </div>
+          <div class="col-12 col-md-6">
+            <img
+              src="images/toolcalls/tool4.png"
+              alt="Tool calls reference 4"
+              class="img-fluid rounded"
+            />
+          </div>
+          <div class="col-12">
+            <img
+              src="images/toolcalls/tool5.png"
+              alt="Tool calls reference 5"
+              class="img-fluid rounded"
+            />
+          </div>
+        </div>
       </div>
     </div>
   </div>

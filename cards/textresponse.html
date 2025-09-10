@@ -8,22 +8,22 @@
           <li><label><input type="checkbox" /> Information is <strong>grounded</strong> on tool response</label></li>
           <li><label><input type="checkbox" /> Response has <strong>no hallucinations</strong></label>
             <ul>
-              <li><em>Possible error type</em>: <strong>unsatisfactory_summary</strong></li>
+              <li><em>Possible <strong class="accent-red">error type</strong></em>: <strong>unsatisfactory_summary</strong></li>
             </ul>
           </li>
           <li><label><input type="checkbox" /> Information is <strong>complete</strong></label>
             <ul>
-              <li><em>Possible error type</em>: <strong>parallel_calls_missing</strong></li>
+              <li><em>Possible <strong class="accent-red">error type</strong></em>: <strong>parallel_calls_missing</strong></li>
             </ul>
           </li>
           <li><label><input type="checkbox" /> Provided URLs are <strong>valid</strong></label>
             <ul>
-              <li><em>Possible error type</em>: <strong>unsatisfactory_summary</strong></li>
+              <li><em>Possible <strong class="accent-red">error type</strong></em>: <strong>unsatisfactory_summary</strong></li>
             </ul>
           </li>
           <li><label><input type="checkbox" /> Check <strong>category flag</strong> is the same for this step</label></li>
           <li><label><input type="checkbox" /> If category flag is <strong>error recovery</strong> or <strong>state dependency</strong>, it is checked until resolved</label></li>
-          <li><label><input type="checkbox" /> Check <strong>Response type</strong> is <code>text_response</code></label></li>
+          <li><label><input type="checkbox" /> Check <strong class="accent-blue">Response type</strong> is <code>text_response</code></label></li>
           <li><label><input type="checkbox" /> Check <strong>Verified steps</strong></label></li>
           <li><label><input type="checkbox" /> Check <strong>Summary accuracy</strong></label></li>
           <li><label><input type="checkbox" /> Check <strong>Critic Comments</strong></label></li>
@@ -36,12 +36,18 @@
     <!-- Right: 2/3 on desktop (clickable to close) -->
     <div class="col-12 col-lg-8 d-flex close-on-click">
       <div class="flex-grow-1">
-        <!-- Replace with your real image -->
-        <img
-          src="..."
-          alt="Demo image for this card"
-          class="img-fluid rounded"
-        />
+        <div class="d-flex flex-column gap-3">
+          <img
+            src="images/textresponse/text1.png"
+            alt="Text response reference 1"
+            class="img-fluid rounded"
+          />
+          <img
+            src="images/textresponse/text2.png"
+            alt="Text response reference 2"
+            class="img-fluid rounded"
+          />
+        </div>
       </div>
     </div>
   </div>
