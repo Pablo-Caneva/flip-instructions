@@ -1,0 +1,248 @@
+:root {
+  --node-w: 280px;
+  --node-h: 96px;
+  --stroke: 3px;
+  --radius: 16px;
+  --gap: 28px;
+
+  /* Palette inspired by main.png (friendlier tones) */
+  --bg: #0e1a2b;
+  --bg-accent: #13243a;
+  --surface: #0f223b;
+  --card: #102843;
+  --text: #e6f3ff;
+  --muted: #9db7cc;
+  --primary: #46d1ff;
+  --primary-weak: #2aa3cf;
+}
+
+body {
+  background: radial-gradient(1200px 1200px at 10% 0%, var(--bg-accent), var(--bg)),
+              radial-gradient(900px 900px at 90% 20%, rgba(70,209,255,.10), transparent),
+              var(--bg);
+  color: var(--text);
+  font-family: 'Inter', ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji";
+}
+
+/* Optional hero background using provided image with soft overlay */
+.hero-bg {
+  background-image: linear-gradient(to bottom, rgba(15,34,59,.76), rgba(15,34,59,.86)), url('images/main.png');
+  background-size: cover;
+  background-position: center;
+  border-bottom: 1px solid rgba(255,255,255,.06);
+}
+
+/* Header title + subtitle styles */
+.site-title {
+  font-size: clamp(1.5rem, 2.6vw, 2.25rem);
+  font-weight: 800;
+  letter-spacing: 0.3px;
+  color: #ffffff;
+  text-shadow: 0 2px 12px rgba(0,0,0,.35);
+}
+.site-subtitle {
+  color: #ffffff;
+  font-weight: 600;
+  text-shadow: 0 1px 6px rgba(0,0,0,.55);
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 10px;
+  background: rgba(5,13,24,.45);
+}
+
+/* Flow wrapper */
+.flow {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: var(--gap);
+  padding: 48px 16px 72px;
+}
+
+/* Generic node button */
+.node {
+  position: relative;
+  width: var(--node-w);
+  height: var(--node-h);
+  display: grid;
+  place-items: center;
+  background: var(--card);
+  color: var(--text);
+  border: var(--stroke) solid rgba(255,255,255,.14);
+  cursor: pointer;
+  user-select: none;
+  transition: transform .15s ease;
+}
+.node:hover { transform: scale(1.03); }
+.node:active { transform: scale(.98); }
+.node .label {
+  padding: 0 10px;
+  font-weight: 600;
+  text-align: center;
+}
+
+/* Shapes */
+.node.terminator { border-radius: 999px; }
+.node.process    { border-radius: var(--radius); }
+
+/* Diamond = rotated square */
+.node.diamond {
+  /* make it a square so it looks like a proper diamond when rotated */
+  width: 120px;
+  height: 120px;
+  background: var(--card);
+  border: var(--stroke) solid rgba(255,255,255,.14);
+  border-radius: 12px;       /* soft corners (optional) */
+  transform: rotate(45deg);  /* the “flip” to diamond */
+}
+
+/* keep the text upright */
+.node.diamond .label {
+  transform: rotate(-45deg);
+  font-weight: 600;
+  text-align: center;
+  padding: 0 10px;
+}
+
+/* Fullscreen viewer */
+.viewer {
+  position: fixed;
+  inset: 0;
+  background: rgba(5,13,24,.55);
+  backdrop-filter: blur(2px);
+  display: grid;
+  place-items: center;
+  z-index: 50;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity .25s ease;
+}
+.viewer.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.flipstage {
+  perspective: 1400px;
+  width: 100vw;
+  height: 100svh;
+  max-width: none;
+  max-height: none;
+}
+
+.flipcard {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform .6s ease;
+}
+.viewer.open .flipcard { transform: rotateY(180deg); }
+
+.flipface {
+  position: absolute; inset: 0;
+  backface-visibility: hidden;
+  display: grid; place-items: center;
+}
+.flipface.back { transform: rotateY(180deg); }
+
+/* Expanded rectangle card */
+.expanded-card {
+  background: var(--surface);
+  color: var(--text);
+  border: var(--stroke) solid rgba(255,255,255,.14);
+  border-radius: 0;
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  overflow: auto;
+}
+
+/* Optional: respect notches / safe-areas on mobile */
+.expanded-header,
+.expanded-body {
+  padding-left: max(16px, env(safe-area-inset-left));
+  padding-right: max(16px, env(safe-area-inset-right));
+}
+.expanded-header { padding-top: max(14px, env(safe-area-inset-top)); }
+
+.muted { color: var(--muted); }
+
+/* Make injected card content play nice inside fullscreen */
+.expanded-body {
+  padding: 18px;
+  width: 100%;
+  height: 100%;
+  overflow: auto; /* scroll if content is tall */
+}
+
+/* Show only the in-card bold title (hide global header title) */
+.expanded-header { display: none; }
+
+/* Typography for card content */
+.content-text h3 {
+  font-weight: 700;
+  letter-spacing: 0.2px;
+}
+.content-text p,
+.content-text li,
+.content-text label {
+  font-size: 0.98rem;
+  line-height: 1.4;
+}
+.content-text ul {
+  margin: 0 0 8px 0;
+  padding-left: 1.1rem;
+}
+.content-text ul ul {
+  margin-top: 6px;
+  padding-left: 1.1rem;
+  font-size: 0.95rem;
+}
+.content-text li + li { margin-top: 6px; }
+.content-text em { color: var(--primary); font-style: italic; }
+.content-text strong { font-weight: 700; }
+
+/* Nicer checkboxes */
+.content-text input[type="checkbox"] {
+  width: 1rem;
+  height: 1rem;
+  margin-right: 8px;
+}
+
+/* Generic helpers for cards */
+.expanded-body img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+  border-radius: 10px;
+}
+
+/* Optional: a nice dashed placeholder style if used in card files */
+.media-placeholder {
+  border: 2px dashed #bbb;
+  border-radius: 12px;
+  display: grid;
+  place-items: center;
+  text-align: center;
+  min-height: 240px;
+  padding: 12px;
+}
+
+.arrow-connector {
+  width: 2px;
+  height: 60px;               /* arrow length */
+  margin: 0 auto;              /* center it */
+  background: #111;
+  position: relative;
+}
+.arrow-connector::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  transform: translateX(-50%);
+  border: 8px solid transparent;
+  border-top-color: #111;     /* arrowhead */
+}

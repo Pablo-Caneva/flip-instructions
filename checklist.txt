@@ -1,0 +1,15 @@
+Category & Tools
+System Prompt
+Tool Calls
+Error Types
+Category Flag
+Check for issues
+Critic Comments
+Response Type
+Correct Reasoning
+Response Correct?
+Refine
+Less than 10 or missing category?
+Placeholder
+Categories Adherence
+Final Checklist Before Submission
